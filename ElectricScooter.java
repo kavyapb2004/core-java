@@ -1,14 +1,28 @@
 class ElectricScooter {
-    static boolean isRunning;
 
-    static boolean startOrStop() {
-        if (isRunning == false) {
-            isRunning = true;
-            System.out.println("Electric Scooter started");
-        } else {
-            isRunning = false;
-            System.out.println("Electric Scooter stopped");
-        }
-        return isRunning;
+    static String getBrand(){
+        return "Ather";
+    }
+
+    static String getModel(){
+        return "450X";
+    }
+
+    static int getRange(){
+        return 150; // km
+    }
+
+    static int getTopSpeed(){
+        return 90; // km/h
+    }
+
+    static boolean hasFastCharging(){
+        return true;
+    }
+
+    static double getPrice(){
+        return 145000.00;
     }
 }
+
+
