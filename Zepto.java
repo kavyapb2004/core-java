@@ -1,73 +1,89 @@
-class Zepto {
-
-    public static double search(String foodName) {
-
-        double price = 0.0;
-
-        if (foodName == "Poha") { price = 40; return price; }
-        else if (foodName == "Upma") { price = 45; return price; }
-        else if (foodName == "Pongal") { price = 60; return price; }
-        else if (foodName == "RavaKesari") { price = 35; return price; }
-        else if (foodName == "KhamanDhokla") { price = 50; return price; }
-        else if (foodName == "Thepla") { price = 30; return price; }
-        else if (foodName == "MisalPav") { price = 70; return price; }
-        else if (foodName == "SabudanaKhichdi") { price = 65; return price; }
-        else if (foodName == "PavBhaji") { price = 80; return price; }
-        else if (foodName == "VadaMisal") { price = 75; return price; }
-
-        else if (foodName == "CholeKulche") { price = 85; return price; }
-        else if (foodName == "RajmaRice") { price = 90; return price; }
-        else if (foodName == "DalMakhaniRice") { price = 95; return price; }
-        else if (foodName == "VegPulao") { price = 100; return price; }
-        else if (foodName == "CurdRice") { price = 55; return price; }
-        else if (foodName == "LemonRice") { price = 50; return price; }
-        else if (foodName == "TomatoRice") { price = 60; return price; }
-        else if (foodName == "CoconutRice") { price = 65; return price; }
-        else if (foodName == "MasalaRice") { price = 70; return price; }
-        else if (foodName == "JeeraRice") { price = 75; return price; }
-
-        else if (foodName == "AlooParatha") { price = 60; return price; }
-        else if (foodName == "GobiParatha") { price = 65; return price; }
-        else if (foodName == "MethiParatha") { price = 55; return price; }
-        else if (foodName == "PaneerParatha") { price = 85; return price; }
-        else if (foodName == "StuffedKulcha") { price = 80; return price; }
-        else if (foodName == "PlainRoti") { price = 15; return price; }
-        else if (foodName == "ButterRoti") { price = 20; return price; }
-        else if (foodName == "TandooriRoti") { price = 25; return price; }
-        else if (foodName == "LacchaParatha") { price = 35; return price; }
-        else if (foodName == "RoomaliRoti") { price = 30; return price; }
-
-        else if (foodName == "PalakPaneer") { price = 120; return price; }
-        else if (foodName == "KadaiPaneer") { price = 130; return price; }
-        else if (foodName == "AlooGobi") { price = 90; return price; }
-        else if (foodName == "BhindiMasala") { price = 95; return price; }
-        else if (foodName == "BainganBharta") { price = 100; return price; }
-        else if (foodName == "MatarPaneer") { price = 125; return price; }
-        else if (foodName == "ChanaMasala") { price = 85; return price; }
-        else if (foodName == "DalTadka") { price = 75; return price; }
-        else if (foodName == "VegKofta") { price = 110; return price; }
-        else if (foodName == "MalaiKofta") { price = 135; return price; }
-
-        else if (foodName == "FruitSalad") { price = 60; return price; }
-        else if (foodName == "Custard") { price = 50; return price; }
-        else if (foodName == "GulabJamun") { price = 40; return price; }
-        else if (foodName == "Rasgulla") { price = 35; return price; }
-        else if (foodName == "Jalebi") { price = 45; return price; }
-        else if (foodName == "KajuKatli") { price = 150; return price; }
-        else if (foodName == "BesanLadoo") { price = 120; return price; }
-        else if (foodName == "MilkPeda") { price = 130; return price; }
-        else if (foodName == "SoanPapdi") { price = 110; return price; }
-        else if (foodName == "RavaLadoo") { price = 100; return price; }
-
-        else if (foodName == "Buttermilk") { price = 25; return price; }
-        else if (foodName == "Lassi") { price = 40; return price; }
-        else if (foodName == "MangoJuice") { price = 60; return price; }
-        else if (foodName == "OrangeJuice") { price = 55; return price; }
-        else if (foodName == "AppleJuice") { price = 65; return price; }
-
-        else {
-            System.out.println("Food not available in Zepto");
-            return price;
-        }
-    }
+class Zepto{
+   ZeptoAccount zeptoAccounts[]=new ZeptoAccount[7] ;
+   int index;
+   
+   public boolean createZeptoAccount(ZeptoAccount zeptoAccount){
+   boolean isAccountCreated = false;
+		
+		boolean isCustomerIdValid = false;
+		boolean isCustomerNameValid = false;
+		boolean isEmailValid = false;
+		boolean isCityValid = false;
+		boolean isItemValid = false;
+		boolean isQuantityValid = false;
+		boolean isTotalAmountValid = false;
+		
+		int cId = zeptoAccount.getCustomerId();
+		if(cId > 0){
+		    isCustomerIdValid = true ;
+		}else{
+			System.out.println("Customer Id not valid");
+		}
+		
+		String cName = zeptoAccount.getCustomerName();
+		if(cName != null && !cName.isEmpty()){
+			isCustomerNameValid = true;
+		}else{
+			System.out.println("Customer Name not valid");
+		}
+		
+		String emailId = zeptoAccount.getEmail();
+		if(emailId != null && !emailId.isEmpty()){
+			isEmailValid = true;
+		}else{
+			System.out.println("Email not valid");
+		}
+		
+		String city = zeptoAccount.getCity();
+		if(city != null && !city.isEmpty()){
+			isCityValid = true;
+		}else{
+			System.out.println("City not valid");
+		}
+		
+		String item = zeptoAccount.getItem();
+		if(item != null && !item.isEmpty()){
+			isItemValid = true;
+		}else{
+			System.out.println("Item not valid");
+		}
+		
+		int quantity = zeptoAccount.getQuantity();
+		if(quantity > 0){
+			isQuantityValid = true;
+		}else{
+			System.out.println("Quantity not valid");
+		}
+		
+		double total = zeptoAccount.getTotalAmount();
+		if(total > 0){
+			isTotalAmountValid = true;
+		}else{
+			System.out.println("Total Amount not valid");
+		}
+		
+		if(isCustomerIdValid == true && isCustomerNameValid == true && isEmailValid == true &&
+		   isCityValid == true && isItemValid == true &&
+		   isQuantityValid == true && isTotalAmountValid == true){
+			this.zeptoAccounts[index++] = zeptoAccount;
+			isAccountCreated = true;
+		}
+		return isAccountCreated;
+	
+   }
+	
+	public  void getOrderDetails(){
+		System.out.println("Fetching Zepto Order Details");
+		for(ZeptoAccount zeptoAccount:zeptoAccounts){
+			System.out.println("--------------->");
+		System.out.println("Customer Id is : "+zeptoAccount.getCustomerId());
+		System.out.println("Customer Name is : "+zeptoAccount.getCustomerName());
+		System.out.println("Email Id is : "+zeptoAccount.getEmail());
+		System.out.println("City : "+zeptoAccount.getCity());
+		System.out.println("Item : "+zeptoAccount.getItem());
+		System.out.println("Quantity : "+zeptoAccount.getQuantity());
+		System.out.println("Total Amount : "+zeptoAccount.getTotalAmount());
+		System.out.println("------------------>");
+		}
+	}
 }
